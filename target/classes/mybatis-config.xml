@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<!-- logImple属性指定使用LOG4J输出日志 -->
+	<settings>
+		<setting name = "logImpl" value="LOG4J"/>
+	</settings>
+	
+	<!-- 配置一个包的别名,使用类时不用写包名部分 -->
+	<typeAliases>
+		<package name="tk.mybatis.simple.model"/>
+	</typeAliases>
+	
+	<!-- 配置数据库连接 -->
+	<!-- 数据库的 url 为jdbc:mysql://localhost:3306/mybatis -->
+	<!-- 数据库的用户和密码对应username和password -->
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC">
+				<property name="" value=""/>
+			</transactionManager>
+			<dataSource type="UNPOOLED">
+				<property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+				<property name="url" value="jdbc:mysql://localhost:3306/mybatis?serverTimezone=CST"/>
+				<property name="username" value="root"/>
+				<property name="password" value="123456"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- 配置了一个包含完整路径的CountryMapper.xml,
+		 是一个 MyBatis的SQL语句和映射配置文件 -->
+	<mappers>
+		<mapper resource="tk/mybatis/simple/mapper/CountryMapper.xml"/>
+	</mappers>
+</configuration>
